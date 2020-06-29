@@ -231,8 +231,23 @@ var dragTaskHandler = function(event) {
   var saveTasks = function(){
       localStorage.setItem("tasks", JSON.stringify(tasks));
   }
+  var loadTasks = function() {
+    var savedTasks = localStorage.getItem("tasks");
+    //see if it is null, meaning the local storage doesnt have anyting saved and is empty
+    if (!savedTasks) {
+      return false;
+    }
+  //un-string it 
+    savedTasks = JSON.parse(savedTasks);
+    // loop through savedTasks array
+    for (var i = 0; i < savedTasks.length; i++) {
+    // pass each task object into the `createTaskEl()` function
+    createTaskEl(savedTasks[i]);
+  }
+  }
 pageContentEl.addEventListener("change" , taskStatusChangeHandler);
 pageContentEl.addEventListener("dragstart", dragTaskHandler);
 pageContentEl.addEventListener("dragover", dropZoneDragHandler);
 pageContentEl.addEventListener("drop", dropTaskHandler);
 pageContentEl.addEventListener("dragleave" , dragLeaveHandler);
+loadTasks();
