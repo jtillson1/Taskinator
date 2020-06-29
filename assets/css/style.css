@@ -66,6 +66,7 @@ footer {
   font-size: 2.4rem;
   padding: 20px;
   border-top: 5px solid var(--primary);
+  margin-top: 20px;
 }
 
 .page-title {
@@ -83,9 +84,12 @@ footer {
   margin: 25px auto;
   width: 95%;
 }
-
+main {
+  display: flex;
+}
 .task-list-wrapper {
   flex: 1;
+  
   margin: 0 20px 20px;
 }
 
@@ -109,7 +113,7 @@ footer {
   border: 2px solid var(--grey);
   background: var(--tertiary);
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .task-name {
@@ -224,9 +228,13 @@ footer {
   form .form-group button {
     width: 100%;
   }
-
+  main {
+    display: flex;
+    flex-wrap: wrap;
+  }
   .task-list-wrapper {
     flex-basis: 100%;
+    
   }
 
 }
